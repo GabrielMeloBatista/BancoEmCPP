@@ -1,28 +1,10 @@
 #include <iostream>
-#include "Titular.h"
+#include "Titular.hpp"
 
-Titular::Titular(CPF cpf, const std::string& nome):
-	cpf(cpf),
-	nome(nome)
+namespace Titular 
 {
-	verificaTamanhoDoNome();
-}
-
-std::string Titular::recuperaNome() const
-{
-	return nome;
-}
-
-std::string Titular::recuperaCpf() const
-{
-	return cpf.retornaCPF();
-}
-
-void Titular::verificaTamanhoDoNome()
-{
-	if (nome.size() < 5)
+	Titular::Titular(CPF::CPF cpf, std::string nome, std::string senha) :
+		Pessoa::Pessoa(cpf, nome), Autenticacao::Autenticavel(senha)
 	{
-		std::cout << "Nome Curto" << std::endl;
-		exit(1);
 	}
 }
