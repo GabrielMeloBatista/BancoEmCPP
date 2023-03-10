@@ -1,76 +1,73 @@
 #include <iostream>
 #include "Conta.hpp"
 
-int Conta::numeroDeContas = 0;
-
-Conta::~Conta()
+namespace Conta
 {
-	numeroDeContas--;
-}
+	int Conta::numeroDeContas = 0;
 
-Conta::Conta(const std::string& numero, Titular titular):
-	numero(numero),
-	titular(titular),
-	saldo(0)
-{
-	numeroDeContas++;
-}
-
-Conta::Conta(const std::string& numero, Titular& titular):
-	numero(numero),
-	titular(titular),
-	saldo(0)
-{
-	numeroDeContas++;
-}
-
-void Conta::sacar(const float& valorASacar)
-{
-	if (valorASacar < 0)
+	Conta::~Conta()
 	{
-		std::cout << "Não pode sacar valor negativo" << std::endl;
-		return;
+		numeroDeContas--;
 	}
 
-	if (valorASacar > saldo)
+	Conta::Conta(const std::string numero, Titular::Titular titular) :
+		numero(numero),
+		titular(titular),
+		saldo(0)
 	{
-		std::cout << "Saldo insuficiente" << std::endl;
-		return;
+		numeroDeContas++;
 	}
-	saldo -= valorASacar;
-}
 
-void Conta::depositar(const float& valorADepositar)
-{
-	if (valorADepositar < 0)
+	void Conta::sacar(const float& valorASacar)
 	{
-		std::cout << "Não pode depositar valor negativo" << std::endl;
-		return;
+		float tarifaDeSaque = valorASacar * taxaDeSaque();
+		float valorDoSaque = valorASacar + tarifaDeSaque;
+		if (valorASacar < 0)
+		{
+			std::cout << "Não pode sacar valor negativo" << std::endl;
+			return;
+		}
+
+		if (valorDoSaque > saldo)
+		{
+			std::cout << "Saldo insuficiente" << std::endl;
+			return;
+		}
+		saldo -= valorDoSaque;
 	}
-	saldo += valorADepositar;
-}
 
-float Conta::recuperaSaldo() const
-{
-	return saldo;
-}
+	void Conta::depositar(const float& valorADepositar)
+	{
+		if (valorADepositar < 0)
+		{
+			std::cout << "Não pode depositar valor negativo" << std::endl;
+			return;
+		}
+		saldo += valorADepositar;
+	}
 
-std::string Conta::recuperaNumero() const
-{
-	return numero;
-}
+	float Conta::recuperaSaldo() const
+	{
+		return saldo;
+	}
 
-std::string Conta::recuperaCPFTitular() const
-{
-	return titular.recuperaCpf();
-}
+	std::string Conta::recuperaNumero() const
+	{
+		return numero;
+	}
 
-int Conta::recuperaNumeroDeContas()
-{
-	return numeroDeContas;
-}
+	std::string Conta::recuperaCPFTitular() const
+	{
+		return titular.recuperaCpf();
+	}
 
-std::string Conta::recuperaNomeTitular() const
-{
-	return titular.recuperaNome();
+	int Conta::recuperaNumeroDeContas()
+	{
+		return numeroDeContas;
+	}
+
+	std::string Conta::recuperaNomeTitular() const
+	{
+		return titular.recuperaNome();
+	}
 }
