@@ -7,4 +7,15 @@ namespace Titular
 		Pessoa::Pessoa(cpf, nome), Autenticacao::Autenticavel(senha)
 	{
 	}
+
+	CPF::CPF Titular::recuperaCpf() const
+	{
+		return cpf;
+	}
+
+	std::string Titular::recuperaNome() const
+	{
+		return nome;
+	}
+
 }
