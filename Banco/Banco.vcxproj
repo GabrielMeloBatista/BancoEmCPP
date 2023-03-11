@@ -118,6 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,18 +130,17 @@
   <ItemGroup>
     <ClCompile Include="Autenticavel.cpp" />
     <ClCompile Include="Caixa.cpp" />
-    <ClCompile Include="Conta.cpp" />
     <ClCompile Include="ContaCorrente.cpp" />
     <ClCompile Include="ContaPoupanca.cpp" />
     <ClCompile Include="CPF.cpp" />
     <ClCompile Include="Funcionario.cpp" />
     <ClCompile Include="Gerente.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Pessoa.cpp" />
     <ClCompile Include="Titular.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Autenticavel.hpp" />
+    <ClInclude Include="DiaDaSemana.hpp" />
     <ClInclude Include="Caixa.hpp" />
     <ClInclude Include="Conta.hpp" />
     <ClInclude Include="ContaCorrente.hpp" />
@@ -149,6 +149,7 @@
     <ClInclude Include="Funcionario.hpp" />
     <ClInclude Include="Gerente.hpp" />
     <ClInclude Include="Pessoa.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Titular.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
