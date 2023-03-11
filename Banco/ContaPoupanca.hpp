@@ -5,10 +5,9 @@
 
 namespace Conta
 {
-	class ContaPoupanca final : public Conta
+	class ContaPoupanca final : public Conta<3>
 	{
 	public:
 		ContaPoupanca(std::string numero, Titular::Titular titular);
-		float taxaDeSaque() const override;
 	};
 }

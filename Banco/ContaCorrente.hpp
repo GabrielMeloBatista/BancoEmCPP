@@ -4,11 +4,11 @@
 #include "Conta.hpp"
 namespace Conta
 {
-	class ContaCorrente final : public Conta
+	class ContaCorrente final : public Conta<5>
 	{
 	public:
 		ContaCorrente(const std::string numero, Titular::Titular titular);
-		float taxaDeSaque() const override;
 		void transferePara(Conta& conta, float valor);
+		void operator+=(ContaCorrente& origem);
 	};
 }

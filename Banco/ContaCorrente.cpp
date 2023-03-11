@@ -14,7 +14,14 @@ namespace Conta
 
 	void ContaCorrente::transferePara(Conta& conta, float valor)
 	{
-		sacar(valor);
-		conta.depositar(valor);
+		auto resultado = sacar(valor);
+		if (resultado.index() == 1)
+		{
+			conta.depositar(valor);
+		}
+	}
+	void ContaCorrente::operator+=(ContaCorrente& origem)
+	{
+		origem.transferePara(*this, origem.recuperaSaldo() / 2);
 	}
 }
