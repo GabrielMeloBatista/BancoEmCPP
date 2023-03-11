@@ -1,8 +1,8 @@
 #include "Gerente.hpp"
 
 namespace Gerente {
-	Gerente::Gerente(CPF::CPF cpf, std::string nome, float salario, std::string senha) :
-		Funcionario(cpf, nome, salario), Autenticavel(senha)
+	Gerente::Gerente(CPF::CPF cpf, std::string nome, float salario, std::string senha, DiaDaSemana diaPagamento) :
+		Funcionario(cpf, nome, salario, diaPagamento), Autenticacao::Autenticavel(senha)
 	{
 	}
 
