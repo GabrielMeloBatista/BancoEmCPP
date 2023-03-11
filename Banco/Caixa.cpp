@@ -1,11 +1,13 @@
 #include "Caixa.hpp"
 
-Caixa::Caixa(CPF::CPF cpf, std::string nome, float salario)
-	:Funcionario(cpf, nome, salario)
-{
-}
+namespace Caixa {
+	Caixa::Caixa(CPF::CPF cpf, std::string nome, float salario, DiaDaSemana diaPagamento)
+		:Funcionario(cpf, nome, salario, diaPagamento)
+	{
+	}
 
-float Caixa::bonificacao() const
-{
-	return recupearSalario() * 0.1;
+	float Caixa::bonificacao() const
+	{
+		return recupearSalario() * 0.1;
+	}
 }

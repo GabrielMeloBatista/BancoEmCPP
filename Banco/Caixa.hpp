@@ -2,11 +2,15 @@
 #include "Funcionario.hpp"
 #include <string>
 #include "CPF.hpp"
+#include "DiaDaSemana.hpp"
 
-class Caixa final : public Funcionario
+namespace Caixa
 {
-public:
-	Caixa(CPF::CPF cpf, std::string nome, float salario);
-	float bonificacao() const;
-};
+	class Caixa final : public Funcionario
+	{
+	public:
+		Caixa(CPF::CPF cpf, std::string nome, float salario, DiaDaSemana diaPagamento);
+		float bonificacao() const;
+	};
+}
 
